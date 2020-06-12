@@ -9,45 +9,59 @@ $(document).ready(
 
     // Alert con 5 numeri casuali
     var numeriDaRicordare = randomNumbers(numero);
+    alert(numeriDaRicordare);
     console.log(numeriDaRicordare);
 
 
 
-    setTimeout(function () {
+    setTimeout(function() {
         // I numeri indovinati
         var numeriGiusti = [];
 
         // Chiedo all'utente di inserire il numero per 5 volte
         var userNumberArray = [];
         for (var j = 0; j < 5; j++) {
-          var userNumber = parseInt(prompt('Inserisci il numero'));
+          var userNumber = parseInt(prompt('Inserisci un numero'));
+          // Validazione del numero inserito dall'utente
+          while(userNumber == null || isNaN(userNumber)){
+            userNumber = parseInt(prompt('ERRORE: Inserisci un numero'));
+          }
           userNumberArray.push(userNumber);
 
           // Verifico se uno dei numeri inseriti dall'utente è uguale ai numeri mostrati
+          // con un'ulteriore ciclo di controllo
           var controllo = false
 
-          // Ciclo di controllo
           var i = 0;
           while( i < numeriDaRicordare.length && controllo == false) {
-            if(userNumber == numeriDaRicordare[i]) {
+            if(userNumberArray[j] == numeriDaRicordare[i]) {
               controllo = true;
-              numeriGiusti.push(userNumber);
+              numeriGiusti.push(userNumberArray[j]);
             }
-
             // Interruzione ciclo
             i++
 
             console.log('dopo il ciclo while: ' + numeriGiusti)
-          }
+          }//fine ciclo while
 
-          // numeriGiusti.push(userNumberArray[i]);
-        }
+        }// fine ciclo for
+
         console.log('I numeri che hai inserito: ' + userNumberArray)
-        console.log('Numeri che hai ricordato: ' + numeriGiusti)
 
-        // Mostro numeri presenti
+        // OUTPUT
+        // Messaggio in base al risultato
+        if (numeriGiusti.length == 0) {
+          alert('Madoooo! Stai messo davvero male. Non ti sei ricordato nemmeno un numero :\'(')
+        } else if (numeriGiusti.length <= 2) {
+            alert('Hai la memoria corta :). Hai memorizzato ' + numeriGiusti.length +  ' numero/i: ' + numeriGiusti);
+          } else if (numeriGiusti.length <= 4) {
+              alert('Bravo! hai memorizzato ' + numeriGiusti.length +  ' numeri: ' + numeriGiusti)
+            } else if (numeriGiusti.length == 5) {
+                alert('Congratulazione! hai memorizzato tutti ' + numeriGiusti.length  + ' numeri: ' + numeriGiusti)
+              }
+    }, 5000);
 
-    }, 2000);
+
 
 
 
