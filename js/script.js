@@ -14,23 +14,36 @@ $(document).ready(
 
 
     setTimeout(function () {
+        // I numeri indovinati
+        var numeriGiusti = [];
 
         // Chiedo all'utente di inserire il numero per 5 volte
         var userNumberArray = [];
-        for (var i = 0; i < 5; i++) {
-          var userNumber = parseInt(prompt('Inserisci un numero'));
+        for (var j = 0; j < 5; j++) {
+          var userNumber = parseInt(prompt('Inserisci il numero'));
           userNumberArray.push(userNumber);
 
           // Verifico se uno dei numeri inseriti dall'utente è uguale ai numeri mostrati
-          for (j = 0; j < numeriDaRicordare.length; j++) {
-            if(userNumber == numeriDaRicordare[j]) {
-              console.log('numero presente: ' + userNumberArray[i])
-            } else if(userNumber != numeriDaRicordare[i]) {
-                console.log('numero assente: ' + userNumberArray[i])
-              }
+          var controllo = false
+
+          // Ciclo di controllo
+          var i = 0;
+          while( i < numeriDaRicordare.length && controllo == false) {
+            if(userNumber == numeriDaRicordare[i]) {
+              controllo = true;
+              numeriGiusti.push(userNumber);
+            }
+
+            // Interruzione ciclo
+            i++
+
+            console.log('dopo il ciclo while: ' + numeriGiusti)
           }
+
+          // numeriGiusti.push(userNumberArray[i]);
         }
-        console.log(userNumberArray)
+        console.log('I numeri che hai inserito: ' + userNumberArray)
+        console.log('Numeri che hai ricordato: ' + numeriGiusti)
 
         // Mostro numeri presenti
 
