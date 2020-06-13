@@ -63,19 +63,19 @@ $(document).ready(
         console.log(numeriMemorizzati);
 
         switch (numeriMemorizzati) {
-          case 0:
-            alert('Madoooo! Stai messo davvero male. Non ti sei ricordato nemmeno un numero!')
-          break;
           case 1, 2:
             alert('Hai la memoria corta :). Hai memorizzato ' + numeriMemorizzati + ' numeri: ' + numeriGiusti);
-          break;
+            break;
           case 3, 4:
-            alert('Bravo! hai memorizzato ' + numeriMemorizzati + ' numeri: ' + numeriGiusti)
-          break;
+            alert('Bravo! hai memorizzato ' + numeriMemorizzati + ' numeri: ' + numeriGiusti);
+            break;
           case 5:
-            alert('Congratulazione! hai memorizzato tutti ' + numeriMemorizzati + ' numeri: ' + numeriGiusti)
-          break;
+            alert('Congratulazione! hai memorizzato tutti ' + numeriMemorizzati + ' numeri: ' + numeriGiusti);
+            break;
+          default:
+            alert('Madoooo! Stai messo davvero male. Non ti sei ricordato nemmeno un numero!');
           }
+
     }, 5000);
 
 
