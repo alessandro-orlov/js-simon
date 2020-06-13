@@ -12,8 +12,6 @@ $(document).ready(
     alert(numeriDaRicordare);
     console.log(numeriDaRicordare);
 
-
-
     setTimeout(function() {
         // I numeri indovinati
         var numeriGiusti = [];
@@ -48,23 +46,37 @@ $(document).ready(
 
         console.log('I numeri che hai inserito: ' + userNumberArray)
 
-        // OUTPUT
+        // OUTPUT if/else-if
         // Messaggio in base al risultato
-        if (numeriGiusti.length == 0) {
-          alert('Madoooo! Stai messo davvero male. Non ti sei ricordato nemmeno un numero :\'(')
-        } else if (numeriGiusti.length <= 2) {
-            alert('Hai la memoria corta :). Hai memorizzato ' + numeriGiusti.length +  ' numero/i: ' + numeriGiusti);
-          } else if (numeriGiusti.length <= 4) {
-              alert('Bravo! hai memorizzato ' + numeriGiusti.length +  ' numeri: ' + numeriGiusti)
-            } else if (numeriGiusti.length == 5) {
-                alert('Congratulazione! hai memorizzato tutti ' + numeriGiusti.length  + ' numeri: ' + numeriGiusti)
-              }
+        // if (numeriGiusti.length == 0) {
+        //   alert('Madoooo! Stai messo davvero male. Non ti sei ricordato nemmeno un numero :\'(')
+        // } else if (numeriGiusti.length <= 2) {
+        //     alert('Hai la memoria corta :). Hai memorizzato ' + numeriGiusti.length +  ' numero/i: ' + numeriGiusti);
+        //   } else if (numeriGiusti.length <= 4) {
+        //       alert('Bravo! hai memorizzato ' + numeriGiusti.length +  ' numeri: ' + numeriGiusti)
+        //     } else if (numeriGiusti.length == 5) {
+        //         alert('Congratulazione! hai memorizzato tutti ' + numeriGiusti.length  + ' numeri: ' + numeriGiusti)
+        //       }
+
+        // OUTPUT con switch case:
+        var numeriMemorizzati = numeriGiusti.length;
+        console.log(numeriMemorizzati);
+
+        switch (numeriMemorizzati) {
+          case 0:
+            alert('Madoooo! Stai messo davvero male. Non ti sei ricordato nemmeno un numero!')
+          break;
+          case 1, 2:
+            alert('Hai la memoria corta :). Hai memorizzato ' + numeriMemorizzati + ' numeri: ' + numeriGiusti);
+          break;
+          case 3, 4:
+            alert('Bravo! hai memorizzato ' + numeriMemorizzati + ' numeri: ' + numeriGiusti)
+          break;
+          case 5:
+            alert('Congratulazione! hai memorizzato tutti ' + numeriMemorizzati + ' numeri: ' + numeriGiusti)
+          break;
+          }
     }, 5000);
-
-
-
-
-
 
 
     // ===================================
